@@ -108,6 +108,21 @@ public class MusicOrganizer
             player.startPlaying(filename);
         }
     }
+    
+    public void playAllSamplesByArtist(String artist)
+    {
+        boolean found = false;
+        for(String filename : files) {
+            if(filename.contains(artist)) {
+                System.out.println("Playing sample: " + filename);
+                player.playSample(filename);
+                found = true;
+            }
+        }
+        if(found) {
+            System.out.println("No tracks found by artist: " + artist);
+        }
+    }
 
     /**
      * Stop the player.
